@@ -117,21 +117,25 @@
     <Compile Include="Controllers\AlunosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MatriculasController.cs" />
+    <Compile Include="Controllers\RelatoriosController.cs" />
     <Compile Include="Controllers\TurmasController.cs" />
     <Compile Include="Infrastructure\SqlConnectionFactory.cs" />
     <Compile Include="Models\DomainModels.cs" />
     <Compile Include="Models\ClassroomResponse.cs" />
     <Compile Include="Models\EnrollmentRequest.cs" />
     <Compile Include="Models\EnrollmentResponse.cs" />
+    <Compile Include="Models\ClassroomReportResponse.cs" />
     <Compile Include="Models\Requests.cs" />
     <Compile Include="Models\Responses.cs" />
     <Compile Include="Repositories\AlunoRepository.cs" />
     <Compile Include="Repositories\ClassroomRepository.cs" />
     <Compile Include="Repositories\EnrollmentRepository.cs" />
+    <Compile Include="Repositories\ReportRepository.cs" />
     <Compile Include="Services\AlunoService.cs" />
     <Compile Include="Services\ClassroomService.cs" />
     <Compile Include="Services\EnrollmentException.cs" />
     <Compile Include="Services\EnrollmentService.cs" />
+    <Compile Include="Services\ReportService.cs" />
     <Compile Include="Global.asax.cs" />
   </ItemGroup>
   <ItemGroup>
