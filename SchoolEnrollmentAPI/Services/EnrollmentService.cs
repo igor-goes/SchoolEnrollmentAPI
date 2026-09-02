@@ -10,7 +10,18 @@ namespace SchoolEnrollmentAPI.Services
     /// </summary>
     public class EnrollmentService
     {
-        private readonly EnrollmentRepository _enrollmentRepository = new EnrollmentRepository();
+        private readonly IEnrollmentRepository _enrollmentRepository;
+
+        public EnrollmentService()
+            : this(new EnrollmentRepository())
+        {
+        }
+
+        // Permite testar as regras sem abrir conexão com o banco de dados.
+        public EnrollmentService(IEnrollmentRepository enrollmentRepository)
+        {
+            _enrollmentRepository = enrollmentRepository;
+        }
 
         public EnrollmentResponse Create(EnrollmentRequest request)
         {

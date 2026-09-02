@@ -5,9 +5,17 @@ using SchoolEnrollmentAPI.Infrastructure;
 namespace SchoolEnrollmentAPI.Repositories
 {
     /// <summary>
+    /// Define a operação de persistência necessária pelo caso de uso de matrícula.
+    /// </summary>
+    public interface IEnrollmentRepository
+    {
+        EnrollmentResult Create(int studentId, int classroomId);
+    }
+
+    /// <summary>
     /// Executa a transação SQL responsável por criar matrículas de forma consistente.
     /// </summary>
-    public class EnrollmentRepository
+    public class EnrollmentRepository : IEnrollmentRepository
     {
         private readonly SqlConnectionFactory _connectionFactory = new SqlConnectionFactory();
 
