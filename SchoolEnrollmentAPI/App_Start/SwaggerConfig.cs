@@ -6,6 +6,9 @@ using WebActivatorEx;
 
 namespace SchoolEnrollmentAPI.App_Start
 {
+    /// <summary>
+    /// Configura a documentação interativa dos endpoints no Swagger UI.
+    /// </summary>
     public static class SwaggerConfig
     {
         public static void Register()

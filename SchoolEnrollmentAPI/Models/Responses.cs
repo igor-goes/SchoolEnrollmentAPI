@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 namespace SchoolEnrollmentAPI.Models
 {
+    /// <summary>
+    /// Encapsula uma página de resultados e os metadados de paginação.
+    /// </summary>
     public class PagedResult<T>
     {
         public int Total { get; set; }

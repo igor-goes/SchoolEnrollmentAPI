@@ -4,6 +4,9 @@ using SchoolEnrollmentAPI.Models;
 
 namespace SchoolEnrollmentAPI.Repositories
 {
+    /// <summary>
+    /// Executa as consultas SQL relacionadas à persistência de alunos.
+    /// </summary>
     public class AlunoRepository
     {
         private readonly SqlConnectionFactory _factory = new SqlConnectionFactory();
@@ -39,6 +42,7 @@ namespace SchoolEnrollmentAPI.Repositories
 
         public bool Desativar(int id)
         {
+            // O registro é preservado para não invalidar referências históricas.
             using (var connection = _factory.Create()) return connection.Execute("UPDATE Aluno SET Ativo=0 WHERE Id=@Id AND Ativo=1", new { Id = id }) == 1;
         }
     }

@@ -4,6 +4,9 @@ using SchoolEnrollmentAPI.Services;
 
 namespace SchoolEnrollmentAPI.Controllers
 {
+    /// <summary>
+    /// Expõe o CRUD HTTP de alunos por meio da rota /api/alunos.
+    /// </summary>
     [RoutePrefix("api/alunos")]
     public class AlunosController : ApiController
     {

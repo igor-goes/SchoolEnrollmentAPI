@@ -3,6 +3,9 @@ using SchoolEnrollmentAPI.Services;
 
 namespace SchoolEnrollmentAPI.Controllers
 {
+    /// <summary>
+    /// Expõe a consulta de turmas e suas vagas restantes em /api/turmas.
+    /// </summary>
     [RoutePrefix("api/turmas")]
     public class TurmasController : ApiController
     {

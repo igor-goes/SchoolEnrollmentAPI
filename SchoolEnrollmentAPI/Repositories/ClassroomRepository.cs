@@ -5,6 +5,9 @@ using SchoolEnrollmentAPI.Models;
 
 namespace SchoolEnrollmentAPI.Repositories
 {
+    /// <summary>
+    /// Executa as consultas SQL de leitura das turmas cadastradas.
+    /// </summary>
     public class ClassroomRepository
     {
         private readonly SqlConnectionFactory _connectionFactory = new SqlConnectionFactory();

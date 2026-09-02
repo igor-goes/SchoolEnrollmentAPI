@@ -2,6 +2,9 @@ using System.Web.Http;
 
 namespace SchoolEnrollmentAPI.Controllers
 {
+    /// <summary>
+    /// Direciona a URL raiz da aplicação para a documentação interativa.
+    /// </summary>
     public class HomeController : ApiController
     {
         [HttpGet]

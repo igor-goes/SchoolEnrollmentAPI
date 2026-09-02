@@ -2,6 +2,9 @@ using System;
 
 namespace SchoolEnrollmentAPI.Models
 {
+    /// <summary>
+    /// Representa os dados persistidos de um aluno na tabela Aluno.
+    /// </summary>
     public class Aluno
     {
         public int Id { get; set; }

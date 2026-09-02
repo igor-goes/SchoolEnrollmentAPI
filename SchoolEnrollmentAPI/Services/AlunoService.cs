@@ -3,6 +3,9 @@ using SchoolEnrollmentAPI.Repositories;
 
 namespace SchoolEnrollmentAPI.Services
 {
+    /// <summary>
+    /// Coordena as operações de alunos e isola o controller da persistência.
+    /// </summary>
     public class AlunoService
     {
         private readonly AlunoRepository _repo = new AlunoRepository();
