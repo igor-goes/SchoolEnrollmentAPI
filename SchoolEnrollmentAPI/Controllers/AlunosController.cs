@@ -1,2 +1,49 @@
-using System.Web.Http; using SchoolEnrollmentAPI.Models; using SchoolEnrollmentAPI.Services;
-namespace SchoolEnrollmentAPI.Controllers { [RoutePrefix("api/alunos")] public class AlunosController : ApiController { private readonly AlunoService _service = new AlunoService(); [HttpGet, Route("")] public IHttpActionResult Listar(string nome = null, int pagina = 1, int tamanhoPagina = 10) { if (pagina < 1 || tamanhoPagina < 1 || tamanhoPagina > 100) return BadRequest("pagina deve ser maior que zero e tamanhoPagina deve estar entre 1 e 100."); return Ok(_service.Listar(nome, pagina, tamanhoPagina)); } [HttpGet, Route("{id:int}")] public IHttpActionResult Obter(int id) { var aluno = _service.Obter(id); return aluno == null ? (IHttpActionResult)NotFound() : Ok(aluno); } [HttpPost, Route("")] public IHttpActionResult Criar(AlunoRequest request) { if (!ModelState.IsValid) return BadRequest(ModelState); var aluno = _service.Criar(request); return CreatedAtRoute("DefaultApi", new { controller = "alunos", id = aluno.Id }, aluno); } [HttpPut, Route("{id:int}")] public IHttpActionResult Atualizar(int id, AlunoRequest request) { if (!ModelState.IsValid) return BadRequest(ModelState); return _service.Atualizar(id, request) ? (IHttpActionResult)Ok(_service.Obter(id)) : NotFound(); } [HttpDelete, Route("{id:int}")] public IHttpActionResult Excluir(int id) { return _service.Excluir(id) ? (IHttpActionResult)Ok() : NotFound(); } } }
+using System.Web.Http;
+using SchoolEnrollmentAPI.Models;
+using SchoolEnrollmentAPI.Services;
+
+namespace SchoolEnrollmentAPI.Controllers
+{
+    [RoutePrefix("api/alunos")]
+    public class AlunosController : ApiController
+    {
+        private readonly AlunoService _service = new AlunoService();
+
+        [HttpGet, Route("")]
+        public IHttpActionResult Listar(string nome = null, int pagina = 1, int tamanhoPagina = 10)
+        {
+            if (pagina < 1 || tamanhoPagina < 1 || tamanhoPagina > 100)
+                return BadRequest("pagina deve ser maior que zero e tamanhoPagina deve estar entre 1 e 100.");
+
+            return Ok(_service.Listar(nome, pagina, tamanhoPagina));
+        }
+
+        [HttpGet, Route("{id:int}")]
+        public IHttpActionResult Obter(int id)
+        {
+            var aluno = _service.Obter(id);
+            return aluno == null ? (IHttpActionResult)NotFound() : Ok(aluno);
+        }
+
+        [HttpPost, Route("")]
+        public IHttpActionResult Criar(AlunoRequest request)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            var aluno = _service.Criar(request);
+            return CreatedAtRoute("DefaultApi", new { controller = "alunos", id = aluno.Id }, aluno);
+        }
+
+        [HttpPut, Route("{id:int}")]
+        public IHttpActionResult Atualizar(int id, AlunoRequest request)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            return _service.Atualizar(id, request) ? (IHttpActionResult)Ok(_service.Obter(id)) : NotFound();
+        }
+
+        [HttpDelete, Route("{id:int}")]
+        public IHttpActionResult Excluir(int id)
+        {
+            return _service.Excluir(id) ? (IHttpActionResult)Ok() : NotFound();
+        }
+    }
+}
