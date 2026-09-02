@@ -9,7 +9,8 @@ namespace SchoolEnrollmentAPI.Controllers
         public IHttpActionResult Get()
         {
             // Garante que a execução pelo IIS Express abra a documentação interativa.
-            return Redirect("/swagger");
+            var swaggerUri = new System.Uri(Request.RequestUri, "swagger");
+            return Redirect(swaggerUri);
         }
     }
 }
