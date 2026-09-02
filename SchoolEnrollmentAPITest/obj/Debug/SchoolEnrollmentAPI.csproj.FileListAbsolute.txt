@@ -1,0 +1,9 @@
+C:\Users\igor goes\Documents\Estudos\Teste Emprego\SchoolEnrollmentAPI\SchoolEnrollmentAPITest\bin\Debug\SchoolEnrollmentAPITest.exe.config
+C:\Users\igor goes\Documents\Estudos\Teste Emprego\SchoolEnrollmentAPI\SchoolEnrollmentAPITest\bin\Debug\SchoolEnrollmentAPITest.exe
+C:\Users\igor goes\Documents\Estudos\Teste Emprego\SchoolEnrollmentAPI\SchoolEnrollmentAPITest\bin\Debug\SchoolEnrollmentAPITest.pdb
+C:\Users\igor goes\Documents\Estudos\Teste Emprego\SchoolEnrollmentAPI\SchoolEnrollmentAPITest\obj\Debug\SchoolEnrollmentAPI.csproj.AssemblyReference.cache
+C:\Users\igor goes\Documents\Estudos\Teste Emprego\SchoolEnrollmentAPI\SchoolEnrollmentAPITest\obj\Debug\SchoolEnrollmentAPITest.Properties.Resources.resources
+C:\Users\igor goes\Documents\Estudos\Teste Emprego\SchoolEnrollmentAPI\SchoolEnrollmentAPITest\obj\Debug\SchoolEnrollmentAPI.csproj.GenerateResource.cache
+C:\Users\igor goes\Documents\Estudos\Teste Emprego\SchoolEnrollmentAPI\SchoolEnrollmentAPITest\obj\Debug\SchoolEnrollmentAPI.csproj.CoreCompileInputs.cache
+C:\Users\igor goes\Documents\Estudos\Teste Emprego\SchoolEnrollmentAPI\SchoolEnrollmentAPITest\obj\Debug\SchoolEnrollmentAPITest.exe
+C:\Users\igor goes\Documents\Estudos\Teste Emprego\SchoolEnrollmentAPI\SchoolEnrollmentAPITest\obj\Debug\SchoolEnrollmentAPITest.pdb
