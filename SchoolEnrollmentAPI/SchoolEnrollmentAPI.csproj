@@ -7,8 +7,8 @@
     <ProjectGuid>{2CB425C5-C534-49D4-BD94-DFA71BC9E71D}</ProjectGuid>
     <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>SchoolEnrollmentAPI</RootNamespace>
-    <AssemblyName>SchoolEnrollmentAPI</AssemblyName>
+    <RootNamespace>SchoolEnrollment.WebApi</RootNamespace>
+    <AssemblyName>SchoolEnrollment.WebApi</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -104,10 +104,18 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="Controllers\AlunosController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Infrastructure\SqlConnectionFactory.cs" />
     <Compile Include="Models\DomainModels.cs" />
     <Compile Include="Models\Requests.cs" />
@@ -130,9 +138,11 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>-1</DevelopmentServerPort>
+          <StartAction>SpecificPage</StartAction>
+          <StartPage>swagger</StartPage>
+          <DevelopmentServerPort>50731</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:0/</IISUrl>
+          <IISUrl>http://localhost:50731/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
