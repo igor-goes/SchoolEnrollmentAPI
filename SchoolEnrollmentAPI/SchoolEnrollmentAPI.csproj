@@ -116,12 +116,16 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="Controllers\AlunosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TurmasController.cs" />
     <Compile Include="Infrastructure\SqlConnectionFactory.cs" />
     <Compile Include="Models\DomainModels.cs" />
+    <Compile Include="Models\ClassroomResponse.cs" />
     <Compile Include="Models\Requests.cs" />
     <Compile Include="Models\Responses.cs" />
     <Compile Include="Repositories\AlunoRepository.cs" />
+    <Compile Include="Repositories\ClassroomRepository.cs" />
     <Compile Include="Services\AlunoService.cs" />
+    <Compile Include="Services\ClassroomService.cs" />
     <Compile Include="Global.asax.cs" />
   </ItemGroup>
   <ItemGroup>
