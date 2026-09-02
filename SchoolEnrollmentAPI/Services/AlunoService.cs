@@ -7,9 +7,9 @@ namespace SchoolEnrollmentAPI.Services
     {
         private readonly AlunoRepository _repo = new AlunoRepository();
 
-        public PagedResult<Aluno> Listar(string nome, int pagina, int tamanho)
+        public PagedResult<Aluno> Listar(string name, int page, int pageSize)
         {
-            return _repo.Listar(nome, pagina, tamanho);
+            return _repo.Listar(name, page, pageSize);
         }
 
         public Aluno Obter(int id) => _repo.Obter(id);
@@ -26,6 +26,7 @@ namespace SchoolEnrollmentAPI.Services
 
         private static Aluno Converter(AlunoRequest request)
         {
+            // A camada de serviço evita que o controller conheça o modelo persistido.
             return new Aluno { Nome = request.Nome.Trim(), Email = request.Email.Trim(), DataNascimento = request.DataNascimento.Value, Ativo = true };
         }
     }

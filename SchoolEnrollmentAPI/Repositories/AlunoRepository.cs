@@ -8,13 +8,14 @@ namespace SchoolEnrollmentAPI.Repositories
     {
         private readonly SqlConnectionFactory _factory = new SqlConnectionFactory();
 
-        public PagedResult<Aluno> Listar(string nome, int pagina, int tamanho)
+        public PagedResult<Aluno> Listar(string name, int page, int pageSize)
         {
+            // COUNT e página são executados na mesma ida ao banco.
             const string sql = @"SELECT COUNT(1) FROM Aluno WHERE Ativo = 1 AND (@Nome IS NULL OR Nome LIKE '%' + @Nome + '%'); SELECT Id, Nome, Email, DataNascimento, Ativo FROM Aluno WHERE Ativo = 1 AND (@Nome IS NULL OR Nome LIKE '%' + @Nome + '%') ORDER BY Nome, Id OFFSET @Offset ROWS FETCH NEXT @Tamanho ROWS ONLY;";
             using (var connection = _factory.Create())
-            using (var multi = connection.QueryMultiple(sql, new { Nome = string.IsNullOrWhiteSpace(nome) ? null : nome.Trim(), Offset = (pagina - 1) * tamanho, Tamanho = tamanho }))
+            using (var resultSets = connection.QueryMultiple(sql, new { Nome = string.IsNullOrWhiteSpace(name) ? null : name.Trim(), Offset = (page - 1) * pageSize, Tamanho = pageSize }))
             {
-                return new PagedResult<Aluno> { Total = multi.ReadFirst<int>(), Pagina = pagina, TamanhoPagina = tamanho, Itens = multi.Read<Aluno>().AsList() };
+                return new PagedResult<Aluno> { Total = resultSets.ReadFirst<int>(), Pagina = page, TamanhoPagina = pageSize, Itens = resultSets.Read<Aluno>().AsList() };
             }
         }
 
