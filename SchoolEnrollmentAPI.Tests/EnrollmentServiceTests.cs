@@ -15,6 +15,7 @@ namespace SchoolEnrollmentAPI.Tests
         [TestMethod]
         public void Create_ShouldReturnEnrollment_WhenRepositoryCreatesEnrollment()
         {
+            // Confirma o fluxo de sucesso quando todas as regras de matrícula foram atendidas.
             var service = CreateService(EnrollmentResult.Created);
 
             var enrollment = service.Create(new EnrollmentRequest { StudentId = 1, ClassroomId = 2 });
@@ -26,6 +27,7 @@ namespace SchoolEnrollmentAPI.Tests
         [TestMethod]
         public void Create_ShouldThrowConflict_WhenStudentIsInactive()
         {
+            // Garante que aluno inativo não possa ocupar uma vaga e receba conflito de regra de negócio.
             var service = CreateService(EnrollmentResult.StudentInactive);
 
             var exception = Assert.ThrowsException<EnrollmentException>(
@@ -37,6 +39,7 @@ namespace SchoolEnrollmentAPI.Tests
         [TestMethod]
         public void Create_ShouldThrowConflict_WhenClassroomHasNoRemainingSeats()
         {
+            // Garante que a matrícula seja bloqueada quando não há vagas disponíveis na turma.
             var service = CreateService(EnrollmentResult.NoRemainingSeats);
 
             var exception = Assert.ThrowsException<EnrollmentException>(
@@ -48,6 +51,7 @@ namespace SchoolEnrollmentAPI.Tests
         [TestMethod]
         public void Create_ShouldThrowConflict_WhenEnrollmentAlreadyExists()
         {
+            // Garante que o mesmo aluno não seja matriculado duas vezes na mesma turma.
             var service = CreateService(EnrollmentResult.DuplicateEnrollment);
 
             var exception = Assert.ThrowsException<EnrollmentException>(
@@ -59,6 +63,7 @@ namespace SchoolEnrollmentAPI.Tests
         [TestMethod]
         public void Create_ShouldThrowNotFound_WhenStudentDoesNotExist()
         {
+            // Garante que a tentativa de matrícula informe corretamente a ausência do aluno.
             var service = CreateService(EnrollmentResult.StudentNotFound);
 
             var exception = Assert.ThrowsException<EnrollmentException>(
