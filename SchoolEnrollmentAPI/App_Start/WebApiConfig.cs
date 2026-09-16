@@ -1,0 +1,16 @@
+using System.Web.Http;
+
+namespace SchoolEnrollmentAPI.App_Start
+{
+    /// <summary>
+    /// Centraliza o registro das rotas HTTP expostas pela API.
+    /// </summary>
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            config.MapHttpAttributeRoutes();
+            config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}", new { id = RouteParameter.Optional });
+        }
+    }
+}
